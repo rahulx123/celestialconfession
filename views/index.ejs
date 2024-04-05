@@ -1,0 +1,28 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Confession Page</title>
+</head>
+<body>
+  <div class="header">
+    <h1>Confess Anonymously</h1>
+    <form action="/confess" method="post">
+      <textarea name="confession" placeholder="Enter your confession here"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div class="confession-container">
+    <% confessions.forEach(confession => { %>
+      <div class="confession-box">
+        <p><%= confession.text %></p>
+        <button class="copy-button" onclick="copyToClipboard('<%= confession.text %>')">Copy Text</button>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>
