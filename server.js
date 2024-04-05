@@ -44,10 +44,3 @@ app.post('/confess', (req, res) => {
     }
   });
 });
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request));
-});
-
-async function handleRequest(request) {
-  return app(request);
-}
