@@ -44,7 +44,10 @@ app.post('/confess', (req, res) => {
     }
   });
 });
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request));
 });
+
+async function handleRequest(request) {
+  return app(request);
+}
